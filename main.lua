@@ -4,6 +4,7 @@ require("sprites")
 require("player")
 require("input")
 require("map")
+require("graphics")
 
 -- Game state
 game = {
@@ -27,27 +28,31 @@ function love.load()
     sprites_init()
     map_init()
     player_init()
+    graphics_init()
 end
 
 function love.update(dt)
     input_update()
     player_update(dt)
+    graphics_update(dt)
 end
 
 function love.draw()
-    -- Scale everything up
-    love.graphics.push()
-    love.graphics.scale(game.scale, game.scale)
+    -- Render to offscreen canvas
+    graphics_begin()
 
     -- Draw in order: map, player, ui
     map_draw()
     player_draw()
 
-    love.graphics.pop()
+    -- Apply CRT shader and draw to screen
+    graphics_finish()
 end
 
 function love.keypressed(key)
     if key == "escape" then
         love.event.quit()
+    elseif key == "f1" then
+        graphics_toggle()
     end
 end
