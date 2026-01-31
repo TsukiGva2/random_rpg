@@ -1,6 +1,4 @@
 -- main.lua
--- EarthBound-like RPG - Main entry point
--- No OOP, pure procedural Lua + LÖVE2D
 
 require("sprites")
 require("player")

@@ -108,7 +108,9 @@ function player_get_sprite_frame()
         else
             frame = FRAME_BACK_IDLE
         end
-    elseif player.direction == "left" then
+    elseif player.direction == "left" or player.direction == "right" then
+        flip = player.direction == "right"
+
         if player.moving then
             -- Alternate between left_walk and left_walk2
             if player.anim_frame == 0 then
@@ -117,19 +119,7 @@ function player_get_sprite_frame()
                 frame = FRAME_LEFT_WALK2
             end
         else
-            frame = FRAME_LEFT_WALK
-        end
-    elseif player.direction == "right" then
-        -- Right is just flipped left
-        flip = true
-        if player.moving then
-            if player.anim_frame == 0 then
-                frame = FRAME_LEFT_WALK
-            else
-                frame = FRAME_LEFT_WALK2
-            end
-        else
-            frame = FRAME_LEFT_WALK
+            frame = FRAME_LEFT_WALK2
         end
     end
 

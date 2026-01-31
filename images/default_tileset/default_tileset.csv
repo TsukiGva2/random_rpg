@@ -1,0 +1,2 @@
+name; region_x; region_y; region_width; region_height; tile_size_x; tile_size_y; tile_spacing; platform_height; cell_size; z_index; bitmasks; priorities
+Atlas1; 0; 0; 228; 38; 18; 18; 1; 0; 16; 1;;
