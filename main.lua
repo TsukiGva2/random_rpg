@@ -1,6 +1,7 @@
 -- main.lua
 
 require("sprites")
+require("tileset")
 require("player")
 require("input")
 require("map")
@@ -25,10 +26,16 @@ function love.load()
     love.window.setTitle("RPG")
 
     -- Initialize systems
+    tileset_init()
     sprites_init()
-    map_init()
     player_init()
+    map_init()
     graphics_init()
+
+    -- Background music
+    game.bgm = love.audio.newSource("audio/intro.mp3", "stream")
+    game.bgm:setLooping(true)
+    game.bgm:play()
 end
 
 function love.update(dt)

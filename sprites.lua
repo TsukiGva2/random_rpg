@@ -33,13 +33,15 @@ function sprites_load(name, path)
     local image = love.graphics.newImage(path)
     spritesheets[name] = image
 
+    local w, h = image:getDimensions()
+
     -- Create quads for each frame
     sprite_quads[name] = {}
     for i = 0, SPRITE_COLS - 1 do
         sprite_quads[name][i] = love.graphics.newQuad(
             i * SPRITE_SIZE, 0,
             SPRITE_SIZE, SPRITE_SIZE,
-            image:getDimensions()
+            w, h
         )
     end
 end
