@@ -1,7 +1,6 @@
 -- main.lua
 
 require("sprites")
-require("tileset")
 require("player")
 require("input")
 require("map")
@@ -26,7 +25,6 @@ function love.load()
     love.window.setTitle("RPG")
 
     -- Initialize systems
-    tileset_init()
     sprites_init()
     player_init()
     map_init()
